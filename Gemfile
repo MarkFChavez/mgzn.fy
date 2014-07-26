@@ -1,5 +1,9 @@
 source 'https://rubygems.org'
 
+gem 'devise'
+gem 'bootstrap-sass'
+gem 'haml'
+gem 'haml-rails'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.4'
