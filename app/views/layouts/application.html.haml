@@ -1,20 +1,42 @@
 !!!
 %html
   %head
-    %title Feed
+    %title Postboard
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
 
-    .container
+    %nav.navbar.navbar-fixed-top.navbar-inverse{role:"navigation"}
+      .container-fluid
+        .navbar-header
+          %button.navbar-toggle{type:"button",data:{toggle:"collapse",target:"#bs-example-navbar-collapse-1"}}
+            %span.sr-only Toggle navigation
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+
+          = link_to 'Postboard', '#', class: "navbar-brand"
+
+        .collapse.navbar-collapse#bs-example-navbar-collapse-1
+          %ul.nav.navbar-nav.navbar-right
+            - if user_signed_in?
+              %li.active
+                = link_to "Account", edit_user_registration_path 
+              %li.active
+                = link_to "Sign out", destroy_user_session_path, method: :delete, data: { confirm: "Sign out?" }
+
+            - else
+              %li.active
+                = link_to user_omniauth_authorize_path(:github) do
+                  %i.fa.fa-github.fa-lg
+                  %span Sign in with Github
+
+
+    .container.top70
       .row
         .col-lg-12
-          %h1 
-            Feed
-            %small build your own
-          %hr
-
+          = render 'layouts/flash'
           = yield
 
 

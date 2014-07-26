@@ -1,0 +1,27 @@
+= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+
+  .row
+    .col-lg-3
+      = f.label :name
+      = f.text_field :name, class: "form-control", autofocus: true
+
+  .row.top10
+    .col-lg-3
+      = f.label :email
+      = f.email_field :email, class: "form-control"
+  
+  .row.top10
+    .col-lg-3
+      = f.label :password
+      = f.password_field :password, class: "form-control", autocomplete: "off"
+
+  .row.top10
+    .col-lg-3
+      = f.label :password_confirmation
+      = f.password_field :password_confirmation, class: "form-control", autocomplete: "off"
+
+  .row.top10
+    .col-lg-3
+      = f.submit "Sign up", class: "btn btn-lg btn-primary"
+  
+= render "devise/shared/links"
