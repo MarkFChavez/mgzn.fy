@@ -9,7 +9,7 @@ class HomeController < ApplicationController
     posts = []
 
     doc = Nokogiri::HTML(open(mashable))
-    content =  doc.css("div.column-content")[1]
+    content =  doc.css("div.column-content")
     content.children.each do |article|
       #get title
       nokogiri_title = article.css('h1')[0]
@@ -33,6 +33,6 @@ class HomeController < ApplicationController
       posts << post
     end
 
-    posts
+    posts.sort_by { |post| post.published_at.reverse }
   end
 end
