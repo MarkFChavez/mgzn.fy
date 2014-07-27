@@ -1,4 +1,4 @@
-class Post
+class Mashable
   attr_accessor :title, :link, :excerpt, :image, :source, :published_at
 
   def initialize(attrs={})

@@ -1,0 +1,18 @@
+.post.mashable
+  .row
+    .col-lg-12
+      = link_to post.title, post.link, target: "_blank", class: 'link lead bold'
+
+  .row.top10
+    .col-lg-12
+      %small= "#{distance_of_time_in_words(Time.now, post.published_at).upcase} AGO"
+
+  .row.top10
+    .col-lg-12
+      = post.excerpt
+
+  .row.top10
+    .col-lg-12
+      .pull-right
+        %span.bold.blue= post.source.upcase
+

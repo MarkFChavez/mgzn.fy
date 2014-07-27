@@ -22,8 +22,12 @@ body {
   font-weight: bold;
 }
 
-.mashable {
+.blue {
   color: #00aeef;
+}
+
+.green {
+  color: #089e00;
 }
 
 .post {
@@ -32,6 +36,14 @@ body {
   float: left;
   width: 250px;
   background-color: #fff;
+}
+
+.post.mashable {
+  border: 2px solid #00aeef;
+}
+
+.post.techcrunch {
+  border: 2px solid #089e00;
 }
 
 .link {
