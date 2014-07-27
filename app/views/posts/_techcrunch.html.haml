@@ -5,6 +5,10 @@
 
   .row.top10
     .col-lg-12
+      %small= "#{distance_of_time_in_words(Time.now, post.published_at).upcase} AGO"
+
+  .row.top10
+    .col-lg-12
       = post.excerpt
 
   .row.top10

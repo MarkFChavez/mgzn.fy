@@ -46,13 +46,16 @@ class HomeController < ApplicationController
       #get excerpt
       excerpt = child.xpath(".//p[@class='excerpt']")
 
+      #get time
+      time = child.xpath(".//div[@class='byline']/time")[0]
+
       techcrunch = TechCrunch.new(title: title.text, link: link[0]['href'], excerpt: excerpt.text)
+      techcrunch.published_at = time['datetime']
       techcrunch.source = :techcrunch
 
       posts << techcrunch
     end
 
-    # posts.sort_by { |mashable| mashable.published_at.reverse }
-    posts
+    posts.sort_by { |post| Date.parse(post.published_at) }.reverse
   end
 end
