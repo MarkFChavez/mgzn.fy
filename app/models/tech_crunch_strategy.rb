@@ -18,10 +18,16 @@ class TechCrunchStrategy < Strategy
 
       #get time
       time = child.xpath(".//div[@class='byline']/time")[0]
-
+  
       techcrunch = TechCrunch.new(title: title.text, link: link[0]['href'], excerpt: excerpt.text)
       techcrunch.published_at = time['datetime']
       techcrunch.source = :techcrunch
+
+      #get image
+      image = child.xpath(".//img")[0]
+      if image
+        techcrunch.image = image['data-src']
+      end
 
       posts << techcrunch
     end

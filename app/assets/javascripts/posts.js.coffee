@@ -1,13 +1,14 @@
 class @Posts
   self = this
 
-  @enableMasonry: ->
-    $("#posts").masonry
-      columnWidth: 70,
-      itemSelector: '.post'
+  @enableMasonry: (container) ->
+    container.imagesLoaded ->
+      container.masonry
+        columnWidth: 70,
+        itemSelector: '.post'
 
   @init: ->
-    self.enableMasonry()
+    self.enableMasonry( $("#posts") )
 
 $ ->
   Posts.init()
