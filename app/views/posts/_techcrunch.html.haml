@@ -9,8 +9,9 @@
 
   .row.top10
     .col-lg-12
-      = image_tag post.image
-      = post.excerpt
+      = link_to image_tag(post.image, style:"width:210px;height:160px"), post.link, target: "_blank"
+      .top20
+        %p{style:"text-align:justify"}= post.excerpt
 
   .row.top10
     .col-lg-12

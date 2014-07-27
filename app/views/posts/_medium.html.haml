@@ -1,0 +1,23 @@
+.post.medium
+  .row
+    .col-lg-12
+      = link_to post.title, "https://medium.com#{post.link}", target: "_blank", class: 'link lead bold'
+
+  .row.top10
+    .col-lg-12
+      - if post.author_image
+        = image_tag post.author_image, class: "img img-circle", style: "width:32px;height:32px"
+      - if post.author_name
+        %small= post.author_name
+
+      %small.italic= post.reading_time
+
+  .row.top10
+    .col-lg-12
+      = post.excerpt
+
+  .row.top10
+    .col-lg-12
+      .pull-right
+        %span.bold.black= post.source.upcase
+

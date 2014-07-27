@@ -10,10 +10,13 @@ class HomeController < ApplicationController
 
     mashable = MashableStrategy.all
     techcrunch = TechCrunchStrategy.all
+    medium = MediumStrategy.all
 
-    posts << mashable
-    posts << techcrunch
+    posts = [mashable, techcrunch].flatten!.sort_by do |post| 
+      Date.parse(post.published_at)
+    end.reverse
 
-    posts.flatten!.sort_by { |post| Date.parse(post.published_at) }.reverse
+    posts << medium
+    posts.flatten!
   end
 end
