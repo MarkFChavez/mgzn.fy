@@ -37,6 +37,18 @@
       .row
         .col-lg-12
           = render 'layouts/flash'
+
+          .pull-right
+            .row
+              .col-lg-12
+                .btn-group
+                  %button.btn.btn-default.filter{"data-strategy"=>""} All
+                  %button.btn.btn-default.filter{"data-strategy"=>"mashable"} Mashable
+                  %button.btn.btn-default.filter{"data-strategy"=>"medium"} Medium
+                  %button.btn.btn-default.filter{"data-strategy"=>"techcrunch"} TechCrunch
+
+          .clearfix
+
           = yield
 
 
